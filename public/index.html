@@ -22,13 +22,13 @@
 				<li data-match-route="/$"><a href="/">Home</a></li>
 				<li data-match-route="/add"><a href="/add">Add</a></li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="!currentUser">
+			<ul class="nav navbar-nav pull-right" data-ng-if="!currentUser">
 				<li data-match-route="/login"><a href="/login">Login</a></li>
 				<li data-match-route="/signup"><a href="/signup">Sign up</a></li>
 			</ul>
-			<ul class="nav navbar-nav pull-right" ng-if="currentUser">
-				<li class="navbar-text" ng-bind="currentUser.email"></li>
-				<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+			<ul class="nav navbar-nav pull-right" data-ng-if="currentUser">
+				<li class="navbar-text" data-ng-bind="currentUser.email"></li>
+				<li><a href="javascript:void(0)" data-ng-click="logout()">Logout</a></li>
 			</ul>
 		</div>
 
@@ -46,5 +46,6 @@
 
 		<!-- Custon Scripts -->
 		<script src="app.js"></script>
+		<script src="controllers/main.js"></script>
 	</body>
 </html>

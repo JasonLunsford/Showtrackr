@@ -1,12 +1,13 @@
 angular.module('MyShowTrackr', [
-	'ui.router',
+	//'ngRoute',
+	'ui-router'
 	'ngCookies',
-	'ngResources',
+	'ngResource',
 	'ngMessages',
 	'mgcrea.ngStrap'
 ])
-.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-	$locationProvider.html5Mode(true);
+.config(['$urlRouterProvider', '$locationProvider', '$stateProvider', function($urlRouterProvider, $locationProvider, $stateProvider) {
+	$urlRouterProvider.otherwise("/");
 	
 	$routeProvider
 		.when('/', {
@@ -32,4 +33,33 @@ angular.module('MyShowTrackr', [
 			.otherwise({
 			redirectTo: '/'
 		});
+
+	$stateProvider
+		.state('/', {
+			url: "/",
+			templateUrl: "views/home.html",
+			controller: 'MainCtrl'
+		})
+
+		.state('state1', {
+			url: "/state1",
+			templateUrl: "partials/state1.html"
+		})
+
+		.state('state1', {
+			url: "/state1",
+			templateUrl: "partials/state1.html"
+		})
+
+		.state('state1', {
+			url: "/state1",
+			templateUrl: "partials/state1.html"
+		})
+
+		.state('state1', {
+			url: "/state1",
+			templateUrl: "partials/state1.html"
+		});
+
+	$locationProvider.html5Mode(true);
 }]);

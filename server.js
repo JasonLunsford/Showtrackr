@@ -75,9 +75,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.get('*', function(req, res) {
-	res.redirect('/#' + req.originalUrl);
-});
+/*app.get('*', function(req, res) {
+	res.redirect('/' + req.originalUrl);
+});*/
 app.use(function(err, req, res, next) {
 	console.error(err.stack);
 	res.send(500, { message: err.message });  // apparently the stack and message properties contain the same data?

@@ -6,7 +6,16 @@ angular.module('MyShowTrackr', [
 	'mgcrea.ngStrap'
 ])
 .config(['$urlRouterProvider', '$locationProvider', '$stateProvider', function($urlRouterProvider, $locationProvider, $stateProvider) {
-	$urlRouterProvider.otherwise("/home");
+	$urlRouterProvider
+		.rule(function ($injector, $location) {
+			var path = $location.path();
+			var normalized = path.toLowerCase();
+
+			if (path != normalized) {
+				$location.replace().path(normalized);
+			}
+		})
+		.otherwise("/home");
 
 	$stateProvider
 		.state('/home', {
